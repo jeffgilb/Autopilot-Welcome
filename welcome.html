@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Welcome to Your New Device
+        </title>
+        <style>
+            :root {
+    --accent:#00AEEF;
+    --accent2:#0078D4;
+    --bg:#030712;
+    --card:rgba(8,18,35,.92);
+    --text:#ffffff;
+    --muted:#9fb3c8;
+    --success:#22C55E;
+}
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body {
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    color:#fff;
+    background:radial-gradient(circle at 50% 45%, rgba(40,90,255,.45), transparent 42%),radial-gradient(circle at 50% 50%, rgba(0,120,212,.20), transparent 65%),linear-gradient(180deg,#01040d 0%,#041435 45%,#020814 100%);
+    overflow:auto;
+}
+body:before {
+    content:
+    "0101001010100101010010101001010100101010010101001010100101010010 "
+    "1010010101001010100101010010101001010100101010010101001010100101 "
+    "0101001010100101010010101001010100101010010101001010100101010010 "
+    "1010010101001010100101010010101001010100101010010101001010100101 "
+    "0101001010100101010010101001010100101010010101001010100101010010 "
+    "1010010101001010100101010010101001010100101010010101001010100101 "
+    "0101001010100101010010101001010100101010010101001010100101010010 "
+    "1010010101001010100101010010101001010100101010010101001010100101";
+    position:fixed;
+    inset:0;
+    white-space:pre-wrap;
+    word-break:break-all;
+    font-family:Consolas,monospace;
+    font-size:34px;
+    font-weight:300;
+    line-height:1.45;
+    letter-spacing:3px;
+    color:rgba(80,180,255,.34);
+    text-shadow:0 0 8px rgba(0,174,239,.40),0 0 18px rgba(0,174,239,.25);
+    padding:60px;
+    overflow:hidden;
+    z-index:-2;
+    pointer-events:none;
+    mask-image:radial-gradient(ellipse at center,rgba(255,255,255,1) 0%,rgba(255,255,255,.9) 45%,rgba(255,255,255,.3) 75%,transparent 100%);
+    -webkit-mask-image:radial-gradient(ellipse at center,rgba(255,255,255,1) 0%,rgba(255,255,255,.9) 45%,rgba(255,255,255,.3) 75%,transparent 100%);
+}
+body:after {
+    content:'';
+    position:fixed;
+    inset:0;
+    background:radial-gradient(circle at center,rgba(0,120,212,.18),transparent 60%),linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.92));
+    z-index:-1;
+}
+.container {
+    width:100%;
+    max-width:1000px;
+    background:rgba(5,15,30,.92);
+    border:1px solid rgba(0,174,239,.3);
+    backdrop-filter:blur(10px);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+.logo-container {
+    margin-bottom:10px;
+}
+.logo-container img {
+    width:250px;
+    height:auto;
+    display:block;
+}
+.hero {
+    background:linear-gradient(135deg,#041120,#0c2748);
+    padding:30px 40px 20px 40px;
+    text-align:left;
+}
+.hero h1 {
+    margin:0 0 5px 0;
+    font-size:2.5rem;
+    font-weight:600;
+    color:#fff;
+}
+.hero p {
+    font-size:1.5rem;
+    color:#b8dffd;
+}
+.content {
+    padding:40px;
+}
+.status {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:16px;
+    background:rgba(34,197,94,.08);
+    border-left:5px solid var(--success);
+    border-radius:8px;
+    margin-bottom:30px;
+}
+.status-icon {
+    font-size:24px;
+    color:var(--success);
+}
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+.card {
+    background:var(--card);
+    border-radius:14px;
+    padding:24px;
+    border:1px solid rgba(0,174,239,.15);
+}
+.card {
+    transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+.card h3 {
+    margin-bottom:10px;
+    color:var(--accent);
+}
+.device-info {
+    background:var(--card);
+    border-radius:14px;
+    padding:25px;
+    margin-bottom:30px;
+}
+.device-info table {
+    width:100%;
+}
+.device-info td {
+    padding:8px;
+}
+.label {
+    color:#7FB2FF;
+    width:180px;
+}
+.actions {
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+}
+.button {
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:8px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    font-weight:600;
+}
+.footer {
+    padding:20px 40px;
+    background:#050B16;
+    color:#8dbcf5;
+    font-size:13px;
+}
+.checklist {
+    margin-top:10px;
+}
+.checklist li {
+    margin-left:20px;
+    margin-bottom:8px;
+}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="hero">
+                <div class="logo-container">
+                    <img src="data:image/png;base64,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">
+                </div>
+                <h1>
+                    Welcome to the Lab, %USER%!
+                </h1>
+                <p>
+                    This device is fresh out of the Autopilot oven. It has been successfully configured and is ready for work. The jury is still out on the user.
+                </p>
+            </div>
+            <div class="content">
+                <div class="grid">
+                    <div class="card">
+                        <h3>
+                            &#128230; Applications
+                        </h3>
+                        <p>
+                            Youar assigned applications are installing in the background while you get started.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            &#128274; Security
+                        </h3>
+                        <p>
+                            BitLocker, Defender, and compliance policies have been configured.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>
+                            &#9729;&#65039; Microsoft 365
+                        </h3>
+                        <p>
+                            Your work resources are available using your company account.
+                        </p>
+                    </div>
+                </div>
+                <div class="card" style="margin-bottom:30px;">
+                    <h3>
+                        &#9989; Recommended Next Steps
+                    </h3>
+                    <ul class="checklist">
+                        <li>
+                            Open Settings to Add Bluetooth &amp; devices.
+                        </li>
+                        <li>
+                            Open Company Portal to review available applications.
+                        </li>
+                        <li>
+                            Verify Microsoft Teams and Outlook sign in successfully.
+                        </li>
+                        <li>
+                            Allow OneDrive to complete synchronization.
+                        </li>
+                        <li>
+                            Leave your device powered on to receive any remaining updates.
+                        </li>
+                    </ul>
+                </div>
+                <div class="actions">
+                    <a class="button" href="ms-settings:bluetooth">&#128295; Add devices</a><a class="button" href="companyportal:">Open Company Portal</a><a class="button" href="ms-teams:">&#128231; Open Teams</a><a class="button" target="_blank" href="https://www.jeffgilb.com/blog">&#128231; IT Self Service</a>
+                </div>
+                <div class="device-info">
+                    <h2 style="margin-bottom:20px;">
+                        &#128187; Device Information
+                    </h2>
+                    <table>
+                        <tr>
+                            <td class="label">
+                                Computer Name
+                            </td>
+                            <td id="computerName">
+                                %COMPUTERNAME%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                Serial Number
+                            </td>
+                            <td id="serialNumber">
+                                %SERIALNUMBER%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                Primary User
+                            </td>
+                            <td id="currentUser">
+                                %USERNAME%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                Windows Version
+                            </td>
+                            <td id="osVersion">
+                                %WINDOWSVERSION%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">
+                                Provisioned
+                            </td>
+                            <td id="dateProvisioned">
+                                %DATE%
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card" style="margin-bottom:30px;">
+                    <h3>
+                        &#128640; What's New in Jeff's Lab
+                    </h3>
+                    <div style="margin-top:15px;">
+                        <div style="padding:15px;border-left:4px solid #0078D4;margin-bottom:15px;background:rgba(0,120,212,.08);">
+                            <strong>Good Things Come to Those Who Wait</strong><br>Core applications have been installed, and additional assigned software will continue deploying automatically in the background. <br><br>It's normal for some apps to appear over the next several minutes after sign-in.
+                        </div>
+                        <div style="padding:15px;border-left:4px solid #0078D4;margin-bottom:15px;background:rgba(0,120,212,.08);">
+                            <strong>Windows Hello Two-Factor MFA has Been Implemented</strong><br>Windows Hello for Business uses a two-factor authentication method that combines a device-specific credential with a biometric or PIN gesture.<br><br>Password expiration anxiety has been reduced by approximately 0%.
+                        </div>
+                        <div style="padding:15px;border-left:4px solid #0078D4;margin-bottom:15px;background:rgba(0,120,212,.08);">
+                            <strong>M365 Copilot is now Available for Eligible Users</strong><br>Ask AI to summarize meetings you definitely paid attention to.
+                        </div>
+                        <div style="padding:15px;border-left:4px solid #0078D4;background:rgba(0,120,212,.08);">
+                            <strong>Gary Earns a Promotion Nobody Approved</strong><br>Gary the Screaming Goat has been promoted to Senior Escalation Engineer and is monitoring deployment success rates and screaming when necessary.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                Questions or issues? Contact the Service Desk at 1-800-555-5555.
+            </div>
+        </div>
+    </body>
+</html>
